@@ -43,7 +43,7 @@ static int					is_number(char *s)
 
 	if (s == NULL)
 		return (0);
-	if (*s == '-')
+	if (*s == '-' || *s == '+')
 		s++;
 	n = 0;
 	while (*s != '\0')
