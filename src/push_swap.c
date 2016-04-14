@@ -32,10 +32,10 @@ int					main(int ac, char **av)
 
 	if (ac == 1 || !(l = init_lst(ac, av)) || sorted(l))
 		exit(1);
-	// while (l)
-	// {
-	// 	ft_putnbr(l->num);
-	// 	l = l->next;
-	// }
+	while (l)
+	{
+		ft_putnbr(l->num);
+		l = l->next;
+	}
 	return (0);
 }
