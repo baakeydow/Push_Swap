@@ -6,7 +6,7 @@
 #    By: bndao <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/14 05:31:21 by bndao             #+#    #+#              #
-#    Updated: 2016/04/14 07:19:59 by bndao            ###   ########.fr        #
+#    Updated: 2016/04/14 23:33:46 by bndao            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCDIR = src/
 SRC = $(SRCDIR)push_swap.c \
 		$(SRCDIR)lst.c \
 		$(SRCDIR)utils.c \
+		$(SRCDIR)actions.c \
 
 INC = header
 

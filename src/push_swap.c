@@ -12,30 +12,42 @@
 
 #include "push_swap.h"
 
-static int			sorted(t_lst *l)
+static void			print_a(t_lst *a)
 {
-	while (l)
+	ft_putstr("\n\na: ");
+	while (a)
 	{
-		if (l->next)
-		{
-			if (l->num > l->next->num)
-				return (0);
-		}
-		l = l->next;
+		ft_putnbr(a->num);
+		ft_putstr(" ");
+		a = a->next;
 	}
-	return (1);
+}
+
+static void			print_b(t_lst *b)
+{
+	ft_putstr("\n\nb: ");
+	while (b)
+	{
+		ft_putnbr(b->num);
+		ft_putstr(" ");
+		b = b->next;
+	}
 }
 
 int					main(int ac, char **av)
 {
-	t_lst	*l;
+	t_lst	*a;
+	t_lst	*b;
+	t_my	*begin;
 
-	if (ac == 1 || !(l = init_lst(ac, av)) || sorted(l))
+	if (ac == 1 || !(a = init_lst(ac, av)) || sorted(a))
 		exit(1);
-	while (l)
-	{
-		ft_putnbr(l->num);
-		l = l->next;
-	}
+	b = NULL;
+	begin = init_begin(a);
+	sa(a);
+	print_a(a);
+	print_b(b);
+	// pb(&b, &a);
+	// pb(&b, &a);
 	return (0);
 }

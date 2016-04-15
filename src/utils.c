@@ -37,7 +37,7 @@ static long long int		ft_atoi_ll(const char *str)
 	return (r * signe);
 }
 
-static int					is_number(char *s)
+int								is_number(char *s)
 {
 	int		n;
 
@@ -108,4 +108,18 @@ int								repeated(char **av)
 		i++;
 	}
 	return (0);
+}
+
+int					sorted(t_lst *l)
+{
+	while (l)
+	{
+		if (l->next)
+		{
+			if (l->num > l->next->num)
+				return (0);
+		}
+		l = l->next;
+	}
+	return (1);
 }

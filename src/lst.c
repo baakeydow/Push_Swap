@@ -18,6 +18,11 @@ t_lst							*init_lst(int ac, char **av)
 	int			i;
 
 	i = 2;
+	if (!is_number(av[1]))
+	{
+		write(1, "Error\n", ft_strlen("Error\n"));
+		exit(1);
+	}
 	if (ac == 2)
 		return (NULL);
 	if (!arg_valid(av) || repeated(av))
@@ -31,6 +36,16 @@ t_lst							*init_lst(int ac, char **av)
 	return (l);
 }
 
+t_my							*init_begin(t_lst *l)
+{
+	t_my		*node;
+
+	if (!(node = (t_my *)malloc(sizeof(t_my))))
+		return (NULL);
+	node->begin = l;
+	return (node);
+}
+
 t_lst							*l_new(int n)
 {
 	t_lst		*node;
@@ -40,6 +55,13 @@ t_lst							*l_new(int n)
 	node->num = n;
 	node->next = NULL;
 	return (node);
+}
+
+void							lst_add_front(t_lst **l, t_lst *new)
+{
+	if (*l)
+		new->next = (*l);
+	*l = new;
 }
 
 void							push_back_list(t_lst *b_list, t_lst *new)
@@ -55,4 +77,30 @@ void							push_back_list(t_lst *b_list, t_lst *new)
 			tmp = tmp->next;
 		tmp->next = new;
 	}
+}
+
+void							swap_elem_data(t_lst *num1, t_lst *num2)
+{
+	t_lst			tmp;
+
+	tmp.num = num1->num;
+	num1->num = num2->num;
+	num2->num = tmp.num;
+}
+
+t_lst							*swap_loop(t_lst *start, t_my *mylist)
+{
+	t_lst		*nextone;
+
+	start = mylist->begin;
+	nextone = start->next;
+	while (start && start->next != NULL)
+	{
+		swap_elem_data(start, nextone);
+		start = start->next;
+		nextone = nextone->next;
+	}
+	nextone = mylist->begin;
+	start = mylist->begin;
+	return (start);
 }
