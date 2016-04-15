@@ -44,10 +44,8 @@ int					main(int ac, char **av)
 		exit(1);
 	b = NULL;
 	begin = init_begin(a);
-	sa(a);
+	rra(&a);
 	print_a(a);
 	print_b(b);
-	// pb(&b, &a);
-	// pb(&b, &a);
 	return (0);
 }

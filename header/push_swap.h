@@ -32,6 +32,7 @@ void				pa(t_lst **a, t_lst **b);
 void				pb(t_lst **b, t_lst **a);
 void				ra(t_lst *l, t_my *b);
 void				rb(t_lst *l, t_my *b);
+void				rra(t_lst **l);
 int					sorted(t_lst *l);
 
 t_lst				*l_new(int n);

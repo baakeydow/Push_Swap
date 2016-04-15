@@ -79,3 +79,23 @@ void            rb(t_lst *l, t_my *b)
         write(1, "rb ", 3);
     }
 }
+
+void            rra(t_lst **l)
+{
+    t_lst   *tmp;
+    t_lst   *b_last;
+
+    if (!l)
+        return ;
+    tmp = *l;
+    if ((*l)->next)
+    {
+        while ((*l)->next->next)
+            (*l) = (*l)->next;
+        b_last = *l;
+        (*l) = (*l)->next;
+        (b_last)->next = NULL;
+        lst_add_front(&tmp, *l);
+        write(1, "rra ", 3);
+    }
+}
