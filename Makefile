@@ -6,7 +6,7 @@
 #    By: bndao <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/14 05:31:21 by bndao             #+#    #+#              #
-#    Updated: 2016/04/14 23:33:46 by bndao            ###   ########.fr        #
+#    Updated: 2016/04/15 06:49:28 by bndao            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,11 @@ FLAGS += -Wextra
 SRCDIR = src/
 
 SRC = $(SRCDIR)push_swap.c \
+		$(SRCDIR)args_valid.c \
 		$(SRCDIR)lst.c \
 		$(SRCDIR)utils.c \
 		$(SRCDIR)actions.c \
+		$(SRCDIR)actions2.c \
 
 INC = header
 

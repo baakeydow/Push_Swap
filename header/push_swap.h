@@ -15,36 +15,36 @@
 # define PUSH_SWAP_H
 # include "libft.h"
 
-typedef struct		s_my
-{
-	struct s_lst	*begin;
-}					t_my;
-
 typedef struct		s_lst
 {
 	int				num;
 	struct s_lst	*next;
+	struct s_lst	*prev;
 }					t_lst;
 
 void				sa(t_lst *l);
 void				sb(t_lst *l);
 void				pa(t_lst **a, t_lst **b);
 void				pb(t_lst **b, t_lst **a);
-void				ra(t_lst *l, t_my *b);
-void				rb(t_lst *l, t_my *b);
-void				rra(t_lst **l);
+void				ra(t_lst *l);
+void				rb(t_lst *l);
+void				rr(t_lst *a, t_lst *b);
+void				rra(t_lst *l);
+void				rrb(t_lst *l);
+void				rrr(t_lst *a, t_lst *b);
 int					sorted(t_lst *l);
 
 t_lst				*l_new(int n);
 t_lst				*init_lst(int ac, char **av);
-t_my				*init_begin(t_lst *l);
-t_lst				*swap_loop(t_lst *start, t_my *mylist);
+t_lst				*swap_loop(t_lst *start);
+t_lst				*last_is_first(t_lst *start);
 void				push_back_list(t_lst *b_list, t_lst *new);
 void				lst_add_front(t_lst **l, t_lst *new);
 void				swap_elem_data(t_lst *num1, t_lst *num2);
 
+int					size_list(t_lst *l);
 int					is_number(char *s);
-int					arg_valid(char **av);
+int					args_valid(char **av);
 int					repeated(char **av);
 
 #endif

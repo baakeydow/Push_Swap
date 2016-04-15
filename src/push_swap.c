@@ -34,17 +34,62 @@ static void			print_b(t_lst *b)
 	}
 }
 
+// int					find_min(t_lst *l)
+// {
+// 	while (l)
+// 	{
+// 		if (l->next)
+// 		{
+// 			if (l->num > l->next->num)
+// 				return (0);
+// 		}
+// 		l = l->next;
+// 	}
+// 	return (1);
+// }
+
 int					main(int ac, char **av)
 {
 	t_lst	*a;
 	t_lst	*b;
-	t_my	*begin;
 
 	if (ac == 1 || !(a = init_lst(ac, av)) || sorted(a))
 		exit(1);
 	b = NULL;
-	begin = init_begin(a);
-	rra(&a);
+	print_a(a);
+	print_b(b);
+	ft_printf("\n\n");
+	sa(a);
+	ft_printf("<--");
+	print_a(a);
+	print_b(b);
+	ft_printf("\n\n");
+	pb(&b, &a);
+	pb(&b, &a);
+	pb(&b, &a);
+	ft_printf("<--");
+	print_a(a);
+	print_b(b);
+	ft_printf("\n\n");
+	rr(a, b);
+	ft_printf("<--");
+	print_a(a);
+	print_b(b);
+	ft_printf("\n\n");
+	rrr(a, b);
+	ft_printf("<--");
+	print_a(a);
+	print_b(b);
+	ft_printf("\n\n");
+	sa(a);
+	ft_printf("<--");
+	print_a(a);
+	print_b(b);
+	ft_printf("\n\n");
+	pa(&a, &b);
+	pa(&a, &b);
+	pa(&a, &b);
+	ft_printf("<--");
 	print_a(a);
 	print_b(b);
 	return (0);
