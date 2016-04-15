@@ -16,8 +16,10 @@ t_lst							*init_lst(int ac, char **av)
 {
 	t_lst		*l;
 	int			i;
+	int			pos;
 
 	i = 2;
+	pos = 1;
 	if (!is_number(av[1]))
 	{
 		write(1, "Error\n", ft_strlen("Error\n"));
@@ -30,19 +32,20 @@ t_lst							*init_lst(int ac, char **av)
 		write(1, "Error\n", ft_strlen("Error\n"));
 		exit(1);
 	}
-	l = l_new(ft_atoi(av[1]));
+	l = l_new(ft_atoi(av[1]), pos);
 	while (av[i])
-		push_back_list(l, l_new(ft_atoi(av[i++])));
+		push_back_list(l, l_new(ft_atoi(av[i++]), ++pos));
 	return (l);
 }
 
-t_lst							*l_new(int n)
+t_lst							*l_new(int n, int pos)
 {
 	t_lst		*node;
 
 	if (!(node = (t_lst *)malloc(sizeof(t_lst))))
 		return (NULL);
 	node->num = n;
+	node->pos = pos;
 	node->next = NULL;
 	node->prev = NULL;
 	return (node);
@@ -82,4 +85,7 @@ void							swap_elem_data(t_lst *num1, t_lst *num2)
 	tmp.num = num1->num;
 	num1->num = num2->num;
 	num2->num = tmp.num;
+	tmp.pos = num1->pos;
+	num1->pos = num2->pos;
+	num2->pos = tmp.pos;
 }

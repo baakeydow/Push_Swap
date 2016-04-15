@@ -18,7 +18,9 @@ static void			print_a(t_lst *a)
 	while (a)
 	{
 		ft_putnbr(a->num);
-		ft_putstr(" ");
+		ft_putstr(" is the ");
+		ft_putnbr(a->pos);
+		ft_putstr("\n");
 		a = a->next;
 	}
 }
@@ -34,19 +36,26 @@ static void			print_b(t_lst *b)
 	}
 }
 
-// int					find_min(t_lst *l)
-// {
-// 	while (l)
-// 	{
-// 		if (l->next)
-// 		{
-// 			if (l->num > l->next->num)
-// 				return (0);
-// 		}
-// 		l = l->next;
-// 	}
-// 	return (1);
-// }
+int					find_min(t_lst *l)
+{
+	int		pos;
+	int		last;
+
+	if (!l)
+		return (0);
+	pos = l->pos;
+	last = l->num;
+	while (l)
+	{
+		if (last > l->num)
+		{
+			pos = l->pos;
+			last = l->num;
+		}
+		l = l->next;
+	}
+	return (pos);
+}
 
 int					main(int ac, char **av)
 {
@@ -58,39 +67,7 @@ int					main(int ac, char **av)
 	b = NULL;
 	print_a(a);
 	print_b(b);
-	ft_printf("\n\n");
-	sa(a);
-	ft_printf("<--");
-	print_a(a);
-	print_b(b);
-	ft_printf("\n\n");
-	pb(&b, &a);
-	pb(&b, &a);
-	pb(&b, &a);
-	ft_printf("<--");
-	print_a(a);
-	print_b(b);
-	ft_printf("\n\n");
-	rr(a, b);
-	ft_printf("<--");
-	print_a(a);
-	print_b(b);
-	ft_printf("\n\n");
-	rrr(a, b);
-	ft_printf("<--");
-	print_a(a);
-	print_b(b);
-	ft_printf("\n\n");
-	sa(a);
-	ft_printf("<--");
-	print_a(a);
-	print_b(b);
-	ft_printf("\n\n");
-	pa(&a, &b);
-	pa(&a, &b);
-	pa(&a, &b);
-	ft_printf("<--");
-	print_a(a);
-	print_b(b);
+	ft_printf("\n%d\n", find_min(a));
+
 	return (0);
 }

@@ -54,9 +54,9 @@ void            pa(t_lst **a, t_lst **b)
     while ((*b)->next)
         (*b) = (*b)->next;
     if (!*a)
-        *a = l_new((*b)->num);
+        *a = l_new((*b)->num, (*b)->pos);
     else
-        push_back_list(*a, l_new((*b)->num));
+        push_back_list(*a, l_new((*b)->num, (*b)->pos));
     if (!(*b)->prev)
     {
         *b = NULL;
@@ -82,9 +82,9 @@ void            pb(t_lst **b, t_lst **a)
     while ((*a)->next)
         (*a) = (*a)->next;
     if (!*b)
-        *b = l_new((*a)->num);
+        *b = l_new((*a)->num, (*a)->pos);
     else
-        push_back_list(*b, l_new((*a)->num));
+        push_back_list(*b, l_new((*a)->num, (*a)->pos));
     if (!(*a)->prev)
     {
         *a = NULL;

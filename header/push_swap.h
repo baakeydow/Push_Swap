@@ -18,6 +18,7 @@
 typedef struct		s_lst
 {
 	int				num;
+	int				pos;
 	struct s_lst	*next;
 	struct s_lst	*prev;
 }					t_lst;
@@ -34,7 +35,7 @@ void				rrb(t_lst *l);
 void				rrr(t_lst *a, t_lst *b);
 int					sorted(t_lst *l);
 
-t_lst				*l_new(int n);
+t_lst				*l_new(int n, int pos);
 t_lst				*init_lst(int ac, char **av);
 t_lst				*swap_loop(t_lst *start);
 t_lst				*last_is_first(t_lst *start);
@@ -42,6 +43,7 @@ void				push_back_list(t_lst *b_list, t_lst *new);
 void				lst_add_front(t_lst **l, t_lst *new);
 void				swap_elem_data(t_lst *num1, t_lst *num2);
 
+int					find_min(t_lst *l);
 int					size_list(t_lst *l);
 int					is_number(char *s);
 int					args_valid(char **av);
