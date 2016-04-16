@@ -35,8 +35,8 @@ void				rrb(t_lst *l);
 void				rrr(t_lst *a, t_lst *b);
 int					sorted(char **av);
 int					is_sorted(t_lst *l);
-int					min_to_bottom(t_lst *l, int pos_min, int size);
-int					max_to_bottom(t_lst *l, int pos_max, int size);
+int					min_to_top(t_lst *l, int pos_min, int size);
+int					max_to_top(t_lst *l, int pos_max, int size);
 
 t_lst				*l_new(int n, int pos);
 t_lst				*init_lst(int ac, char **av);
