@@ -6,7 +6,7 @@
 /*   By: bndao <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/14 05:33:00 by bndao             #+#    #+#             */
-/*   Updated: 2016/04/14 08:33:32 by bndao            ###   ########.fr       */
+/*   Updated: 2016/04/16 12:56:15 by bndao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void			dont_care(t_lst **a, t_lst **b)
 {
 	while (size_list(*a) != 1)
 	{
-		max_to_top(*a, find_max(*a), size_list(*a));
+		min_to_top(*a, find_min(*a), size_list(*a));
 		pb(b, a);
 	}
 	while (size_list(*b))
@@ -84,7 +84,12 @@ int					main(int ac, char **av)
 	ft_printf("\n\n");
 	// ft_printf("\n");
 	// // min_to_bottom(a, find_min(a), size_list(a));
-	// max_to_top(a, find_max(a), size_list(a));
+/*   max_to_top(a, find_max(a), size_list(a));*/
+	/*pb(&b, &a);*/
+	/*max_to_top(a, find_max(a), size_list(a));*/
+	/*pb(&b, &a);*/
+	/*print_a(a);*/
+	/*print_b(b);*/
 	dont_care(&a, &b);
 	// // ft_printf("%d\n", a->pos);
 	// sa(a);

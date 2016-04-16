@@ -6,7 +6,7 @@
 /*   By: bndao <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/14 07:07:09 by bndao             #+#    #+#             */
-/*   Updated: 2016/04/14 08:54:34 by bndao            ###   ########.fr       */
+/*   Updated: 2016/04/16 12:25:38 by bndao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int								is_sorted(t_lst *l)
 	{
 		if (l->next)
 		{
-			if (l->num > l->next->num)
+			if (l->num < l->next->num)
 				return (0);
 		}
 		l = l->next;
