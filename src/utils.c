@@ -12,7 +12,30 @@
 
 #include "push_swap.h"
 
-int								sorted(t_lst *l)
+int								sorted(char **av)
+{
+	t_lst		*l;
+	int			i;
+	int			pos;
+
+	i = 2;
+	pos = 1;
+	l = l_new(ft_atoi(av[1]), pos);
+	while (av[i])
+		lst_add_front(&l, l_new(ft_atoi(av[i++]), ++pos));
+	while (l)
+	{
+		if (l->next)
+		{
+			if (l->num < l->next->num)
+				return (0);
+		}
+		l = l->next;
+	}
+	return (1);
+}
+
+int								is_sorted(t_lst *l)
 {
 	while (l)
 	{

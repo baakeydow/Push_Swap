@@ -76,7 +76,7 @@ int					main(int ac, char **av)
 	t_lst	*a;
 	t_lst	*b;
 
-	if (ac == 1 || !(a = init_lst(ac, av)) || sorted(a))
+	if (ac == 1 || !(a = init_lst(ac, av)) || sorted(av))
 		exit(1);
 	b = NULL;
 	print_a(a);
@@ -89,7 +89,10 @@ int					main(int ac, char **av)
 	// // ft_printf("%d\n", a->pos);
 	// rra(a);
 	// // ft_printf("%d\n", a->pos);
-	print_a(a);
-	print_b(b);
+	if (is_sorted(a))
+	{
+		print_a(a);
+		print_b(b);
+	}
 	return (0);
 }

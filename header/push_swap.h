@@ -33,7 +33,8 @@ void				rr(t_lst *a, t_lst *b);
 void				rra(t_lst *l);
 void				rrb(t_lst *l);
 void				rrr(t_lst *a, t_lst *b);
-int					sorted(t_lst *l);
+int					sorted(char **av);
+int					is_sorted(t_lst *l);
 int					min_to_bottom(t_lst *l, int pos_min, int size);
 int					max_to_bottom(t_lst *l, int pos_max, int size);
 
