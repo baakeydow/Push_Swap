@@ -34,6 +34,8 @@ void				rra(t_lst *l);
 void				rrb(t_lst *l);
 void				rrr(t_lst *a, t_lst *b);
 int					sorted(t_lst *l);
+int					min_to_top(t_lst *l, int pos_min, int size);
+int					max_to_top(t_lst *l, int pos_max, int size);
 
 t_lst				*l_new(int n, int pos);
 t_lst				*init_lst(int ac, char **av);
@@ -44,6 +46,7 @@ void				lst_add_front(t_lst **l, t_lst *new);
 void				swap_elem_data(t_lst *num1, t_lst *num2);
 
 int					find_min(t_lst *l);
+int					find_max(t_lst *l);
 int					size_list(t_lst *l);
 int					is_number(char *s);
 int					args_valid(char **av);

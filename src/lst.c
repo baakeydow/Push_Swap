@@ -85,7 +85,4 @@ void							swap_elem_data(t_lst *num1, t_lst *num2)
 	tmp.num = num1->num;
 	num1->num = num2->num;
 	num2->num = tmp.num;
-	tmp.pos = num1->pos;
-	num1->pos = num2->pos;
-	num2->pos = tmp.pos;
 }

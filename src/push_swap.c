@@ -18,9 +18,7 @@ static void			print_a(t_lst *a)
 	while (a)
 	{
 		ft_putnbr(a->num);
-		ft_putstr(" is the ");
-		ft_putnbr(a->pos);
-		ft_putstr("\n");
+		ft_putstr(" ");
 		a = a->next;
 	}
 }
@@ -36,25 +34,47 @@ static void			print_b(t_lst *b)
 	}
 }
 
-int					find_min(t_lst *l)
+int					min_to_top(t_lst *l, int pos_min, int size)
 {
-	int		pos;
-	int		last;
-
 	if (!l)
 		return (0);
-	pos = l->pos;
-	last = l->num;
-	while (l)
+	ft_printf("pos_min = %d\n", pos_min);
+	ft_printf("size = %d\n", size);
+	while (pos_min != size)
 	{
-		if (last > l->num)
-		{
-			pos = l->pos;
-			last = l->num;
-		}
+		ft_putnbr(l->pos);
+		ra(l);
+		pos_min = find_min(l);
 		l = l->next;
 	}
-	return (pos);
+	return (1);
+}
+
+int					max_to_top(t_lst *l, int pos_max, int size)
+{
+	if (!l)
+		return (0);
+	ft_printf("pos_max = %d\n", pos_max);
+	ft_printf("size = %d\n", size);
+	while (pos_max != size)
+	{
+		ft_putnbr(l->pos);
+		ra(l);
+		pos_max = find_max(l);
+		l = l->next;
+	}
+	return (1);
+}
+
+static void			dont_care(t_lst **a, t_lst **b)
+{
+	while (size_list(*a) != 1)
+	{
+		max_to_top(*a, find_max(*a), size_list(*a));
+		pb(b, a);
+	}
+	while (size_list(*b))
+		pa(a, b);
 }
 
 int					main(int ac, char **av)
@@ -67,7 +87,14 @@ int					main(int ac, char **av)
 	b = NULL;
 	print_a(a);
 	print_b(b);
-	ft_printf("\n%d\n", find_min(a));
-
+	ft_printf("\n");
+	// min_to_top(a, find_min(a), size_list(a));
+	// max_to_top(a, find_max(a), size_list(a));
+	dont_care(&a, &b);
+	// ft_printf("%d\n", a->pos);
+	// ra(a);
+	// ft_printf("%d\n", a->pos);
+	print_a(a);
+	print_b(b);
 	return (0);
 }

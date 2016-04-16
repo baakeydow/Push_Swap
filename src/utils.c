@@ -72,3 +72,45 @@ t_lst							*swap_loop(t_lst *start)
 	end = begin;
 	return (end);
 }
+
+int					find_min(t_lst *l)
+{
+	int		pos;
+	int		last;
+
+	if (!l)
+		return (0);
+	pos = l->pos;
+	last = l->num;
+	while (l)
+	{
+		if (last > l->num)
+		{
+			pos = l->pos;
+			last = l->num;
+		}
+		l = l->next;
+	}
+	return (pos);
+}
+
+int					find_max(t_lst *l)
+{
+	int		pos;
+	int		last;
+
+	if (!l)
+		return (0);
+	pos = l->pos;
+	last = l->num;
+	while (l)
+	{
+		if (last < l->num)
+		{
+			pos = l->pos;
+			last = l->num;
+		}
+		l = l->next;
+	}
+	return (pos);
+}
