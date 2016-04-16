@@ -60,16 +60,16 @@ int					max_to_bottom(t_lst *l, int pos_max, int size)
 	return (1);
 }
 
-// static void			dont_care(t_lst **a, t_lst **b)
-// {
-// 	while (size_list(*a) != 1)
-// 	{
-// 		max_to_bottom(*a, find_max(*a), size_list(*a));
-// 		pb(b, a);
-// 	}
-// 	while (size_list(*b))
-// 		pa(a, b);
-// }
+static void			dont_care(t_lst **a, t_lst **b)
+{
+	while (size_list(*a) != 1)
+	{
+		max_to_bottom(*a, find_max(*a), size_list(*a));
+		pb(b, a);
+	}
+	while (size_list(*b))
+		pa(a, b);
+}
 
 int					main(int ac, char **av)
 {
@@ -79,41 +79,17 @@ int					main(int ac, char **av)
 	if (ac == 1 || !(a = init_lst(ac, av)) || sorted(a))
 		exit(1);
 	b = NULL;
+	print_a(a);
+	print_b(b);
 	ft_printf("\n\n");
-sa(a);
-ft_printf("<--");
-print_a(a);
-print_b(b);
-ft_printf("\n\n");
-pb(&b, &a);
-pb(&b, &a);
-pb(&b, &a);
-ft_printf("<--");
-print_a(a);
-print_b(b);
-ft_printf("\n\n");
-sa(a);
-ft_printf("<--");
-print_a(a);
-print_b(b);
-ft_printf("\n\n");
-pa(&a, &b);
-pa(&a, &b);
-pa(&a, &b);
-ft_printf("<--");
-print_a(a);
-print_b(b);
-
-	// print_a(a);
-	// print_b(b);
 	// ft_printf("\n");
 	// // min_to_bottom(a, find_min(a), size_list(a));
-	// // max_to_bottom(a, find_max(a), size_list(a));
-	// dont_care(&a, &b);
+	// max_to_bottom(a, find_max(a), size_list(a));
+	dont_care(&a, &b);
 	// // ft_printf("%d\n", a->pos);
-	// // ra(a);
+	// rra(a);
 	// // ft_printf("%d\n", a->pos);
-	// print_a(a);
-	// print_b(b);
+	print_a(a);
+	print_b(b);
 	return (0);
 }

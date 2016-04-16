@@ -15,6 +15,7 @@ NAME = push_swap
 FLAGS = -Wall
 FLAGS += -Werror
 FLAGS += -Wextra
+FLAGS += -g
 
 SRCDIR = src/
 

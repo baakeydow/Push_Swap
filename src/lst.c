@@ -19,7 +19,7 @@ t_lst							*init_lst(int ac, char **av)
 	int			pos;
 
 	i = 2;
-	pos = 1;
+	pos = ac - 1;
 	if (!is_number(av[1]))
 	{
 		write(1, "Error\n", ft_strlen("Error\n"));
@@ -34,7 +34,7 @@ t_lst							*init_lst(int ac, char **av)
 	}
 	l = l_new(ft_atoi(av[1]), pos);
 	while (av[i])
-		lst_add_front(&l, l_new(ft_atoi(av[i++]), ++pos));
+		lst_add_front(&l, l_new(ft_atoi(av[i++]), --pos));
 	return (l);
 }
 
