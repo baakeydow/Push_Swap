@@ -90,9 +90,6 @@ int					main(int ac, char **av)
 	// rra(a);
 	// // ft_printf("%d\n", a->pos);
 	if (is_sorted(a))
-	{
-		print_a(a);
-		print_b(b);
-	}
+		ft_printf("\n\nsorted !!!\n");
 	return (0);
 }
