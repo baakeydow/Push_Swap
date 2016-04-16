@@ -34,15 +34,12 @@ static void			print_b(t_lst *b)
 	}
 }
 
-int					min_to_top(t_lst *l, int pos_min, int size)
+int					min_to_bottom(t_lst *l, int pos_min, int size)
 {
 	if (!l)
 		return (0);
-	ft_printf("pos_min = %d\n", pos_min);
-	ft_printf("size = %d\n", size);
 	while (pos_min != size)
 	{
-		ft_putnbr(l->pos);
 		ra(l);
 		pos_min = find_min(l);
 		l = l->next;
@@ -50,15 +47,12 @@ int					min_to_top(t_lst *l, int pos_min, int size)
 	return (1);
 }
 
-int					max_to_top(t_lst *l, int pos_max, int size)
+int					max_to_bottom(t_lst *l, int pos_max, int size)
 {
 	if (!l)
 		return (0);
-	ft_printf("pos_max = %d\n", pos_max);
-	ft_printf("size = %d\n", size);
 	while (pos_max != size)
 	{
-		ft_putnbr(l->pos);
 		ra(l);
 		pos_max = find_max(l);
 		l = l->next;
@@ -66,16 +60,16 @@ int					max_to_top(t_lst *l, int pos_max, int size)
 	return (1);
 }
 
-static void			dont_care(t_lst **a, t_lst **b)
-{
-	while (size_list(*a) != 1)
-	{
-		max_to_top(*a, find_max(*a), size_list(*a));
-		pb(b, a);
-	}
-	while (size_list(*b))
-		pa(a, b);
-}
+// static void			dont_care(t_lst **a, t_lst **b)
+// {
+// 	while (size_list(*a) != 1)
+// 	{
+// 		max_to_bottom(*a, find_max(*a), size_list(*a));
+// 		pb(b, a);
+// 	}
+// 	while (size_list(*b))
+// 		pa(a, b);
+// }
 
 int					main(int ac, char **av)
 {
@@ -85,16 +79,41 @@ int					main(int ac, char **av)
 	if (ac == 1 || !(a = init_lst(ac, av)) || sorted(a))
 		exit(1);
 	b = NULL;
-	print_a(a);
-	print_b(b);
-	ft_printf("\n");
-	// min_to_top(a, find_min(a), size_list(a));
-	// max_to_top(a, find_max(a), size_list(a));
-	dont_care(&a, &b);
-	// ft_printf("%d\n", a->pos);
-	// ra(a);
-	// ft_printf("%d\n", a->pos);
-	print_a(a);
-	print_b(b);
+	ft_printf("\n\n");
+sa(a);
+ft_printf("<--");
+print_a(a);
+print_b(b);
+ft_printf("\n\n");
+pb(&b, &a);
+pb(&b, &a);
+pb(&b, &a);
+ft_printf("<--");
+print_a(a);
+print_b(b);
+ft_printf("\n\n");
+sa(a);
+ft_printf("<--");
+print_a(a);
+print_b(b);
+ft_printf("\n\n");
+pa(&a, &b);
+pa(&a, &b);
+pa(&a, &b);
+ft_printf("<--");
+print_a(a);
+print_b(b);
+
+	// print_a(a);
+	// print_b(b);
+	// ft_printf("\n");
+	// // min_to_bottom(a, find_min(a), size_list(a));
+	// // max_to_bottom(a, find_max(a), size_list(a));
+	// dont_care(&a, &b);
+	// // ft_printf("%d\n", a->pos);
+	// // ra(a);
+	// // ft_printf("%d\n", a->pos);
+	// print_a(a);
+	// print_b(b);
 	return (0);
 }

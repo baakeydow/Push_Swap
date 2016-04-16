@@ -34,7 +34,7 @@ t_lst							*init_lst(int ac, char **av)
 	}
 	l = l_new(ft_atoi(av[1]), pos);
 	while (av[i])
-		push_back_list(l, l_new(ft_atoi(av[i++]), ++pos));
+		lst_add_front(&l, l_new(ft_atoi(av[i++]), ++pos));
 	return (l);
 }
 
