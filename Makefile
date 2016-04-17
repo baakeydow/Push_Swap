@@ -25,6 +25,7 @@ SRC = $(SRCDIR)push_swap.c \
 		$(SRCDIR)utils.c \
 		$(SRCDIR)actions.c \
 		$(SRCDIR)actions2.c \
+		$(SRCDIR)algo.c \
 
 INC = header
 

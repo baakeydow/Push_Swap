@@ -23,6 +23,12 @@ typedef struct		s_lst
 	struct s_lst	*prev;
 }					t_lst;
 
+void                sort_it(t_lst **a, t_lst **b);
+void				stupid(t_lst **a, t_lst **b);
+int					is_sorted(t_lst *l);
+int					is_sorted_ex_last(t_lst *l);
+int					is_inverted(t_lst *l);
+
 void				sa(t_lst *l);
 void				sb(t_lst *l);
 void				pa(t_lst **a, t_lst **b);
@@ -33,8 +39,6 @@ void				rr(t_lst *a, t_lst *b);
 void				rra(t_lst *l);
 void				rrb(t_lst *l);
 void				rrr(t_lst *a, t_lst *b);
-int					sorted(char **av);
-int					is_sorted(t_lst *l);
 int					min_to_top(t_lst *l, int pos_min, int size);
 int					max_to_top(t_lst *l, int pos_max, int size);
 
