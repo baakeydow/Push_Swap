@@ -6,13 +6,13 @@
 /*   By: bndao <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 14:33:16 by bndao             #+#    #+#             */
-/*   Updated: 2016/04/17 14:33:27 by bndao            ###   ########.fr       */
+/*   Updated: 2016/04/17 18:06:32 by bndao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void				stupid(t_lst **a, t_lst **b)
+void							stupid(t_lst **a, t_lst **b)
 {
 	while (size_list(*a) != 1)
 	{
@@ -25,6 +25,8 @@ void				stupid(t_lst **a, t_lst **b)
 
 int								is_sorted(t_lst *l)
 {
+	if (!l)
+		return (0);
 	while (l)
 	{
 		if (l->next)
@@ -39,8 +41,8 @@ int								is_sorted(t_lst *l)
 
 int								is_sorted_ex_last(t_lst *l)
 {
-    if (!l)
-        return (0);
+	if (!l)
+		return (0);
 	while (l->next)
 	{
 		if (l->next->next)
@@ -67,36 +69,27 @@ int								is_inverted(t_lst *l)
 	return (1);
 }
 
-static int                      just_swap(t_lst *a)
+void							sort_it(t_lst **a, t_lst **b)
 {
-    sa(a);
-    if (is_sorted(a))
-        return (1);
-    return (0);
-}
+	t_lst		*second;
 
-void                            sort_it(t_lst **a, t_lst **b)
-{
-    t_lst       *tmp;
-
-    tmp = (*a)->next;
-    if (is_inverted(*a) && size_list(*a) == 3)
+	if (*a)
+		second = (*a)->next;
+	if (is_inverted(*a) && size_list(*a) == 3)
 	{
 		sa(*a);
 		rra(*a);
 	}
-    else if (is_sorted(tmp->next))
-    {
-        rra(*a);
-        rra(*a);
-        sa(*a);
-        ra(*a);
-        ra(*a);
-    }
-    else if (is_sorted_ex_last(*a))
-        ra(*a);
-    else if (just_swap(*a))
-        ;
-    else
-        stupid(a, b);
+	else if (is_sorted(second) && is_bigger((*a)->num, second))
+	{
+		rra(*a);
+		rra(*a);
+		sa(*a);
+		ra(*a);
+		ra(*a);
+	}
+	else if (is_sorted_ex_last(*a) && is_smaller(*a))
+		sa(*a);
+	else
+		stupid(a, b);
 }

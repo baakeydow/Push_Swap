@@ -6,7 +6,7 @@
 /*   By: bndao <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/14 07:07:09 by bndao             #+#    #+#             */
-/*   Updated: 2016/04/16 12:25:38 by bndao            ###   ########.fr       */
+/*   Updated: 2016/04/17 17:46:01 by bndao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_lst							*swap_loop(t_lst *start)
 	return (end);
 }
 
-int					find_min(t_lst *l)
+int								find_min(t_lst *l)
 {
 	int		pos;
 	int		last;
@@ -80,7 +80,7 @@ int					find_min(t_lst *l)
 	return (pos);
 }
 
-int					find_max(t_lst *l)
+int								find_max(t_lst *l)
 {
 	int		pos;
 	int		last;

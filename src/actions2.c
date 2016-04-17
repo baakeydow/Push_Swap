@@ -6,7 +6,7 @@
 /*   By: bndao <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/15 06:47:23 by bndao             #+#    #+#             */
-/*   Updated: 2016/04/15 06:47:42 by bndao            ###   ########.fr       */
+/*   Updated: 2016/04/17 17:43:31 by bndao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 void							ra(t_lst *l)
 {
-    if (!l)
-        return ;
-    if (l->next)
-    {
-        swap_loop(l);
-        write(1, "ra ", 3);
-    }
+	if (!l)
+		return ;
+	if (l->next)
+	{
+		swap_loop(l);
+		write(1, "ra ", 3);
+	}
 }
 
 void							rb(t_lst *l)
 {
-    if (!l)
-        return ;
-    if (l->next)
-    {
-        swap_loop(l);
-        write(1, "rb ", 3);
-    }
+	if (!l)
+		return ;
+	if (l->next)
+	{
+		swap_loop(l);
+		write(1, "rb ", 3);
+	}
 }
 
 void							rr(t_lst *a, t_lst *b)
@@ -48,22 +48,22 @@ void							rr(t_lst *a, t_lst *b)
 
 void							rra(t_lst *l)
 {
-    if (!l)
-        return ;
+	if (!l)
+		return ;
 	if (l->next)
-    {
-        last_is_first(l);
-        write(1, "rra ", 4);
-    }
+	{
+		last_is_first(l);
+		write(1, "rra ", 4);
+	}
 }
 
 void							rrb(t_lst *l)
 {
-    if (!l)
-        return ;
+	if (!l)
+		return ;
 	if (l->next)
-    {
-        last_is_first(l);
-        write(1, "rrb ", 4);
-    }
+	{
+		last_is_first(l);
+		write(1, "rrb ", 4);
+	}
 }

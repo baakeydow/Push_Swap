@@ -28,6 +28,8 @@ void				stupid(t_lst **a, t_lst **b);
 int					is_sorted(t_lst *l);
 int					is_sorted_ex_last(t_lst *l);
 int					is_inverted(t_lst *l);
+int					is_bigger(int num, t_lst *l);
+int					is_smaller(t_lst *l);
 
 void				sa(t_lst *l);
 void				sb(t_lst *l);
