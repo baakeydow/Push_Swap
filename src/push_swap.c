@@ -20,14 +20,10 @@ int					main(int ac, char **av)
 	if (ac == 1 || !(a = init_lst(ac, av)) || is_sorted(a))
 		exit(1);
 	b = NULL;
-	sort_it(&a, &b);
-	ft_putchar('\n');
-	while (a)
-	{
-		ft_putnbr(a->num);
-		ft_putchar(' ');
-		a = a->next;
-	}
+	if (size_list(a) == 2)
+		sa(a);
+	else
+		sort_it(&a, &b);
 	ft_putchar('\n');
 	return (0);
 }
