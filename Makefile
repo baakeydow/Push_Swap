@@ -6,7 +6,7 @@
 #    By: bndao <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/14 05:31:21 by bndao             #+#    #+#              #
-#    Updated: 2016/04/15 06:49:28 by bndao            ###   ########.fr        #
+#    Updated: 2016/04/22 14:18:19 by bndao            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ OBJ = $(SRC:.c=.o)
 all: lib $(NAME)
 
 $(NAME): $(OBJ)
-	@gcc $(FLAGS) -o $(NAME) $(OBJ) -I $(INC) -L ./libft -lftprintf
+	@gcc $(FLAGS) -o $(NAME) $(OBJ) -I $(INC) -L ./libft -lft
 	@echo "\033[1;31m---- Push_Swap Created !!! ----\033[0m"
 
 %.o:%.c

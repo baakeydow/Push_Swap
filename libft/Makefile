@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: bndao <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/02/21 20:55:31 by bndao             #+#    #+#              #
-#    Updated: 2016/03/18 03:57:53 by bndao            ###   ########.fr        #
+#    Created: 2016/01/01 18:28:37 by bndao             #+#    #+#              #
+#    Updated: 2016/03/04 13:35:26 by bndao            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+NAME = libft.a
 
 SRC = ft_atoi.c
 SRC += ft_bzero.c
@@ -75,27 +75,7 @@ SRC += ft_strrev.c
 SRC += ft_count_parts.c
 SRC += ft_split_whitespaces.c
 
-PTF = ft_printf.c
-PTF += percent.c
-PTF += parsing.c
-PTF += handle_conv.c
-PTF += handle_conv2.c
-PTF += handle_sdu.c
-PTF += handle_xpc.c
-PTF += handle_x_maj.c
-PTF += handle_o.c
-PTF += miscellaneous.c
-PTF += resetdataconv.c
-PTF += ft_itoa_base.c
-PTF += ft_itoa_base_ll.c
-PTF += add.c
-PTF += add2.c
-PTF += wide.c
-PTF += length.c
-PTF += va_arg.c
-
 OBJECTS = $(SRC:.c=.o)
-OBJECTS += $(PTF:.c=.o)
 
 CC = gcc
 
@@ -104,28 +84,25 @@ FLAGS += -Werror
 FLAGS += -Wextra
 
 HEADER = libft.h
-HEADER += printf.h
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
-	@echo "\033[1;31mCreating...\033[0m"
-	@ar rc $@ $^
-	@echo "\033[1;37mIndexing...\033[0m"
-	@ranlib $@
-	@echo "\033[0;32mLibftprintf.a Created !\033[0m"
-
-%.o:%.c
-	@$(CC) $(FLAGS) -c $< -o $@
+$(NAME):
+	@echo "\033[1;35mCreating...\033[0m"
+	@$(CC) $(FLAGS) -c $(SRC) $(HEADER)
+	@ar rc $(NAME) $(OBJECTS)
+	@echo "\033[1;38mIndexing...\033[0m"
+	@ranlib $(NAME)
+	@echo "\033[3;34mLibft.a Created !\033[0m"
 
 allclean: fclean all clean
 
 clean:
 	@rm -f $(OBJECTS)
-	@echo "\033[1;37m*.o gone abroad\033m"
+	@echo "\033[1;37m*.o gone !\033[0m"
 
 fclean:
 	@rm -f $(NAME) $(OBJECTS)
-	@echo "\033[1;36mlibftprintf.a and *.o gone\033[0m"
+	@echo "\033[1;37mLibft.a && *.o gone abroad \033[0m"
 
 re: fclean all

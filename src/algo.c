@@ -6,7 +6,7 @@
 /*   By: bndao <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/17 14:33:16 by bndao             #+#    #+#             */
-/*   Updated: 2016/04/17 18:06:32 by bndao            ###   ########.fr       */
+/*   Updated: 2016/04/22 15:54:30 by bndao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void							stupid(t_lst **a, t_lst **b)
 {
-	while (size_list(*a) != 1)
+	while (size_list(*a) != 1 && !is_sorted(*a))
 	{
 		min_to_top(*a, find_min(*a), size_list(*a));
 		pb(b, a);
@@ -88,8 +88,12 @@ void							sort_it(t_lst **a, t_lst **b)
 		ra(*a);
 		ra(*a);
 	}
+	else if (is_sorted(second) && is_smaller_than((*a)->num, second))
+		rra(*a);
 	else if (is_sorted_ex_last(*a) && is_smaller(*a))
 		sa(*a);
+	else if (is_sorted_ex_last(*a) && last_is_bigger(*a))
+		ra(*a);
 	else
 		stupid(a, b);
 }

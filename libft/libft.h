@@ -6,7 +6,7 @@
 /*   By: bndao <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/23 18:45:49 by bndao             #+#    #+#             */
-/*   Updated: 2016/04/14 05:45:32 by bndao            ###   ########.fr       */
+/*   Updated: 2016/01/04 17:22:27 by bndao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ typedef struct		s_stock_par
 	char			**tab;
 }					t_stock_par;
 
-int					ft_printf(const char *format, ...);
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));

@@ -6,36 +6,24 @@
 /*   By: bndao <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/14 06:03:23 by bndao             #+#    #+#             */
-/*   Updated: 2016/04/14 08:41:56 by bndao            ###   ########.fr       */
+/*   Updated: 2016/04/22 15:25:54 by bndao            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_lst							*init_lst(int ac, char **av)
+int								last_is_bigger(t_lst *l)
 {
-	t_lst		*l;
-	int			i;
-	int			pos;
+	int		num;
 
-	i = 2;
-	pos = ac - 1;
-	if (!is_number(av[1]))
-	{
-		write(1, "Error\n", ft_strlen("Error\n"));
-		exit(1);
-	}
-	if (ac == 2)
-		return (NULL);
-	if (!args_valid(av) || repeated(av))
-	{
-		write(1, "Error\n", ft_strlen("Error\n"));
-		exit(1);
-	}
-	l = l_new(ft_atoi(av[1]), pos);
-	while (av[i])
-		lst_add_front(&l, l_new(ft_atoi(av[i++]), --pos));
-	return (l);
+	while (l->next)
+		l = l->next;
+	num = l->num;
+	while (l->prev)
+		l = l->prev;
+	if (num < l->num)
+		return (0);
+	return (1);
 }
 
 t_lst							*l_new(int n, int pos)
